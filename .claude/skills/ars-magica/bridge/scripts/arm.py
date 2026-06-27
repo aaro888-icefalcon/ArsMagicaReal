@@ -21,6 +21,11 @@ rolled honestly and shown; campaign state is read/written in the engine's schema
     arm.py themes new-year --campaign DIR [--year N] [--force]
     arm.py themes status|show|record --campaign DIR [--used Mystery,Social]
 
+  CHARACTER CREATOR — guided, validated build (chargen.py)
+    arm.py char new --type magus|companion|grog [--name N] [--campaign DIR]
+    arm.py char houses | points --set "Int=3,…" | vf --type T --virtues … --flaws …
+    arm.py char cost --ability N|--art N | spellcap --te N --fo N --int N --mt N | abilities | budget --type T
+
   ELEMENTS — atomic setting library, insert/surface into the live Lists (elements.py)
     arm.py element search|show|insert|surface|new …
 
@@ -60,6 +65,8 @@ def main():
         import resolve; resolve.run(a)
     elif head in ("certamen", "aging", "crisis", "warping"):
         import advanced; advanced.run(a)
+    elif head == "char":
+        import chargen; chargen.run(a[1:])
     elif head == "themes":
         import themes; themes.run(a[1:])
     elif head == "element":

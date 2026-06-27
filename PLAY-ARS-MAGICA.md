@@ -17,8 +17,8 @@ Hermetic rules and the world.
         ├── bridge.md             system-profile.md     interpretation.md
         ├── chaos-tendency.md     theme-weights.md      subsystems.md      seeds.md
         ├── setting-canon.md      character-sheet-template.md
-        ├── scripts/{arm.py, themes.py, resolve.py, advanced.py, elements.py, armdice.py, armcore.py}
-        ├── data/rules/{arts,ease_factors,wounds,fatigue,casting,realm_interaction,npc_statistics,aging,warping,certamen}.json
+        ├── scripts/{arm.py, themes.py, resolve.py, advanced.py, chargen.py, elements.py, armdice.py, armcore.py}
+        ├── data/rules/{arts,ease_factors,wounds,fatigue,casting,realm_interaction,npc_statistics,aging,warping,certamen,character_creation}.json
         ├── data/elements/{houses,tribunals,realms,code_clauses,npc_archetypes,hooks,
         │                  factions,locations,creatures,virtues_flaws}.json  (134 atoms, 11 types)
         ├── generators/{registry.md, houses.json, tribunals.json, hermetic_npc.json,
@@ -48,7 +48,12 @@ python3 .claude/skills/mythic-gm/scripts/state.py init campaigns/my-covenant
 # 3. Roll the saga's first (constrained, yearly) Theme order
 python3 .claude/skills/ars-magica/bridge/scripts/arm.py themes new-year --campaign campaigns/my-covenant --year 1220
 
-# 4. Take the first Turn — honest Ars Magica resolution via arm.py
+# 4. Build your magus with the guided, validated creator (scaffolds character-sheet.md)
+python3 .claude/skills/ars-magica/bridge/scripts/arm.py char new --type magus --name "Tiberius" --campaign campaigns/my-covenant
+python3 .claude/skills/ars-magica/bridge/scripts/arm.py char points --set "Int=3,Sta=2,Per=1,Qik=1,Pre=0,Com=0,Str=-1,Dex=0"
+python3 .claude/skills/ars-magica/bridge/scripts/arm.py char vf --type magus --virtues "the_gift,hermetic_magus,gentle_gift" --flaws "weak_parma,difficult_spontaneous,driven"
+
+# 5. Take the first Turn — honest Ars Magica resolution via arm.py
 python3 .claude/skills/mythic-gm/scripts/dice.py scene 5            # Scene Test (Chaos Factor 5)
 python3 .claude/skills/ars-magica/bridge/scripts/arm.py element surface --campaign campaigns/my-covenant --here "covenant,order"
 python3 .claude/skills/ars-magica/bridge/scripts/arm.py cast --te 10 --fo 8 --sta 2 --aura 3 --level 15   # e.g. a magus casts

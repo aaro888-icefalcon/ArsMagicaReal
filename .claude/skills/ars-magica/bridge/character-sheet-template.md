@@ -1,7 +1,9 @@
-# Character — <name>   (Ars Magica 5e; copy into campaigns/<saga>/character-sheet.md)
+# Character — <name>   (Ars Magica 5e)
 
-> Build via Core Rules Ch.3 (Characters), Ch.4 (Virtues & Flaws), Ch.5 (Abilities). Make real
-> choices with the player; roll any creation dice through the engine. Track the **live** values
+> **Build it with the creator:** `arm.py char new --type magus|companion|grog --name "<name>" --campaign <dir>`
+> scaffolds this sheet and prints the 12-step guide; validate each step with
+> `char points` (7-pt buy) · `char vf` (Virtue/Flaw balance) · `char spellcap` · `char cost` · `char budget`.
+> Make real choices with the player; roll any creation dice through the engine. Track the **live** values
 > (Confidence Points, Fatigue, Wounds, Warping/Decrepitude, vis) every scene.
 
 - **Type:** Magus | Companion | Grog   ·   **Concept:** <one line>   ·   **Age:** <actual / apparent>   ·   **Size:** 0

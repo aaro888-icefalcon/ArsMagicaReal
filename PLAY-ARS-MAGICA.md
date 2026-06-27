@@ -17,9 +17,10 @@ Hermetic rules and the world.
         ├── bridge.md             system-profile.md     interpretation.md
         ├── chaos-tendency.md     theme-weights.md      subsystems.md      seeds.md
         ├── setting-canon.md      character-sheet-template.md
-        ├── scripts/{arm.py, themes.py, resolve.py, elements.py, armdice.py, armcore.py}
-        ├── data/rules/{arts,ease_factors,wounds,fatigue,casting,realm_interaction,npc_statistics}.json
-        ├── data/elements/{houses,tribunals,realms,code_clauses,npc_archetypes,hooks}.json
+        ├── scripts/{arm.py, themes.py, resolve.py, advanced.py, elements.py, armdice.py, armcore.py}
+        ├── data/rules/{arts,ease_factors,wounds,fatigue,casting,realm_interaction,npc_statistics,aging,warping,certamen}.json
+        ├── data/elements/{houses,tribunals,realms,code_clauses,npc_archetypes,hooks,
+        │                  factions,locations,creatures,virtues_flaws}.json  (134 atoms, 11 types)
         ├── generators/{registry.md, houses.json, tribunals.json, hermetic_npc.json,
         │               realm_encounter.json, story_hook.json}
         └── adventures/broken-covenant-of-calebais.md

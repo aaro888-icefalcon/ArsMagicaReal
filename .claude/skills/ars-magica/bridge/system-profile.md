@@ -9,7 +9,8 @@
 > consistent and the dice are honest and shown — use it instead of doing the math by hand:
 > `arm.py roll [stress|simple] [--botch N]` · `arm.py ability --char N --ability N [--ef N]` ·
 > `arm.py cast --te N --fo N --sta N --aura N --level N [--kind formulaic|spont-fat|spont-nonfat|ritual]` ·
-> `arm.py combat init\|attack …` · `arm.py npc stat\|might …` · `arm.py realm --aura N --realm <R>`.
+> `arm.py combat init\|attack …` · `arm.py npc stat\|might …` · `arm.py realm --aura N --realm <R>` ·
+> `arm.py certamen …` · `arm.py aging --age N …` · `arm.py crisis …` · `arm.py warping --points N …`.
 > The data tables live in `data/rules/*.json`. This prose remains the reference for *why* each number is what it is.
 
 ## Dice convention — the d10 "stress" and "simple" die  (Ch.1, Die Rolls)
@@ -56,15 +57,15 @@ Ease‑Factor ladder: **3** Simple · **6** Easy · **9** Average · **12** Hard
 - **Wounds** from (Damage − Soak), read against **Size**. For **Size 0**: Light **1–5** (−1), Medium **6–10** (−3), Heavy **11–15** (−5), Incapacitating **16–20** (no actions), **Dead 21+**. Each ±1 Size shifts the bands; every 5+Size over Soak raises the wound a level. Penalties are cumulative (with each other and Fatigue), apply to all rolls/totals **except Soak**.
 - **Incapacitated → Dying:** two Recovery rolls/day; **0 or less → dies**; **9+** improves all Incapacitating wounds to Heavy.
 
-## Certámen  (Ch.7) — the lawful wizard's duel; resolve as opposed Art totals
+## Certámen  (Ch.7) — the lawful wizard's duel; resolve as opposed Art totals  → `arm.py certamen`
 Init = Qik + Finesse + stress. Each round: **Attack = Pre + (Technique *or* Form) + stress**, **Defense = Per + (the other Art) + stress**; **Attack Advantage = Atk − Def**. **Weakening = Int + Penetration + Advantage** vs **Resistance = Sta + Parma** (Parma added, *not* ×5); every 5 over = 1 Fatigue lost. Certámen causes **only exhaustion, never wounds**. Win on the opponent falling unconscious, surrendering, or failing Concentration.
 
 ## Fatigue  (Ch.11)  — ladder: **Fresh 0 · Winded 0 · Weary −1 · Tired −3 · Dazed −5 · Unconscious**
 Short‑term Fatigue test: Sta − Enc + stress vs EF 6 (fail −1 level, botch −2). Long‑term Fatigue: 1 level back per night's sleep. Penalty applies to everything except Soak.
 
 ## Long‑term & defeat  — keep the discipline; defeat is real
-- **Aging** (yearly from age 35): Aging Total = stress(no botch) + age/10 (round up) − living‑conditions − longevity ritual; accrues Aging Points → Characteristic loss & Decrepitude; a high roll triggers a Crisis. Magic can **slow but never halt or reverse** aging.
-- **Warping & Twilight:** strong auras (6+), powerful/constant magic, and **supernatural botches** (1 Warping Point per `10` on the botch dice) raise a magus's Warping Score and risk **Wizard's Twilight**. See `subsystems.md`.
+- **Aging** (yearly from age 35) → `arm.py aging --age N [--living N] [--longevity N]` (and `arm.py crisis …`): Aging Total = stress(no botch) + age/10 (round up) − living‑conditions − longevity ritual; accrues Aging Points → Characteristic loss & Decrepitude; 13 or 22+ triggers a Crisis. Magic can **slow but never halt or reverse** aging. (Tables: `data/rules/aging.json`.)
+- **Warping & Twilight** → `arm.py warping --points N [--prev N]`: strong auras (6+), powerful/constant magic, and **supernatural botches** (1 Warping Point per `0` on the botch dice) raise a magus's Warping Score (5 × new score in points to advance) and risk **Wizard's Twilight**. (Tables: `data/rules/warping.json`; see `subsystems.md`.)
 - **Death/defeat is honest:** grogs die, magi fall, demons revert to spirit and flee, faeries withdraw when denied their story. Never narrate a rescue the dice didn't grant.
 
 ## NPC stat units & on‑the‑fly statting  (Ch.3, Ch.13)

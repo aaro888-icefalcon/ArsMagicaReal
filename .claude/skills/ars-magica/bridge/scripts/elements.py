@@ -70,31 +70,42 @@ def cmd_insert(argv):
     print(f"   payload: tags {rec.get('tags', [])}" + (f", realm {rec['realm']}" if rec.get('realm') else ""))
     print("   (the engine's dice now roll it like any List entry; surface its detail when invoked.)")
 
+REALM_WEIGHT = 2     # a matching Realm/aura counts more than a plain tag overlap
+
 def cmd_surface(argv):
     campaign = C.opt(argv, "--campaign")
     if not campaign: sys.exit("surface needs --campaign DIR")
     here = [w.strip().lower() for w in (C.opt(argv, "--here", "") or "").replace(",", " ").split() if w.strip()]
+    realm = C.opt(argv, "--realm")          # the current scene's Realm/aura, weighted higher
     n = C.opt(argv, "--n", 8, int)
     live = _live_entries(campaign)
     context = set(here)
+    realms = set()
+    if realm: realms.add(realm.lower())
+    for w in here:                          # a realm named in --here also counts as a realm
+        if w in ("magic", "faerie", "divine", "infernal"): realms.add(w)
     for _, e in live:                       # open Threads/Characters contribute their tags + realm
         context.update(t.lower() for t in e.get("tags", []))
-        if e.get("realm"): context.add(str(e["realm"]).lower())
+        if e.get("realm"): realms.add(str(e["realm"]).lower())
+    context |= realms
     inserted_ids = {e.get("element_id") for _, e in live if e.get("element_id")}
     scored = []
     for r in C.load_all_elements().values():
         if r["id"] in inserted_ids: continue
         tags = set(t.lower() for t in r.get("tags", []))
-        if r.get("realm"): tags.add(str(r["realm"]).lower())
-        overlap = len(tags & context)
-        if overlap: scored.append((overlap, r))
+        score = len(tags & context)
+        if r.get("realm") and str(r["realm"]).lower() in realms:
+            score += REALM_WEIGHT           # realm/aura match weighted up
+        if score: scored.append((score, r))
     scored.sort(key=lambda x: (-x[0], x[1]["id"]))
-    print(f"🃏 surfacing {min(n, len(scored))} relevant element(s) for context {sorted(context) or '(none)'}:")
+    print(f"🃏 surfacing {min(n, len(scored))} relevant element(s) "
+          f"(realms {sorted(realms) or '—'}, tags {sorted(context - realms) or '—'}):")
     if not scored:
-        print("   (no tag overlap — roll a fresh one: `element new --type hook` / `realm_encounter`)")
-    for ov, r in scored[:n]:
+        print("   (no overlap — roll a fresh one: `element new --type hook` / `realm_encounter`)")
+    for sc, r in scored[:n]:
         hint = r.get("as_thread") or r.get("summary") or ""
-        print(f"   ·{ov}  {r['id']:26} {r['name']} — {hint}")
+        rl = f"[{r['realm']}] " if r.get("realm") else ""
+        print(f"   ·{sc}  {r['id']:26} {rl}{r['name']} — {hint}")
 
 def cmd_new(argv):
     typ = C.opt(argv, "--type")

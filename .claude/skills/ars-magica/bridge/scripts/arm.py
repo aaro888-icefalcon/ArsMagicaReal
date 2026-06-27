@@ -11,6 +11,12 @@ rolled honestly and shown; campaign state is read/written in the engine's schema
     arm.py combat init --mod N        | arm.py combat attack --atk N --def N --dam N --soak N [--size 0]
     arm.py npc stat --expect N --answer yes|exc_yes|no|exc_no   | arm.py npc might --realm R --might N
 
+  LONG-TERM (advanced.py)
+    arm.py certamen init --qik N --finesse N
+    arm.py certamen --a-pre N --a-art N --a-int N --a-pen N --d-per N --d-art N --d-sta N --d-parma N
+    arm.py aging --age N [--living N] [--longevity N]   | arm.py crisis --age N [--decrepitude N]
+    arm.py warping --points N [--prev N]
+
   THEMES — yearly, constrained, coverage-gated (themes.py)
     arm.py themes new-year --campaign DIR [--year N] [--force]
     arm.py themes status|show|record --campaign DIR [--used Mystery,Social]
@@ -52,6 +58,8 @@ def main():
         roll_alias(a)
     elif head in ("ability", "cast", "combat", "npc"):
         import resolve; resolve.run(a)
+    elif head in ("certamen", "aging", "crisis", "warping"):
+        import advanced; advanced.run(a)
     elif head == "themes":
         import themes; themes.run(a[1:])
     elif head == "element":

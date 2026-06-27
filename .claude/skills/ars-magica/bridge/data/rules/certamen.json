@@ -1,0 +1,16 @@
+{
+  "id": "arm.certamen",
+  "title": "Certámen — the lawful wizard's duel",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#certamen",
+  "initiative": "Quickness + Finesse + stress die (rolled once)",
+  "each_round": {
+    "attack": "Presence + (Technique OR Form) + stress die",
+    "defense": "Perception + (the other Art) + stress die",
+    "attack_advantage": "Attack − Defense (if Attack is higher)",
+    "weakening": "Intelligence + Penetration + Attack Advantage",
+    "resistance": "Stamina + Parma Magica (Parma added, NOT ×5)"
+  },
+  "fatigue": "Weakening − Resistance: every 5 points (or fraction) over = 1 Fatigue level lost by the loser. Certámen causes ONLY exhaustion, never wounds; excess Fatigue = unconsciousness (1 extra hour per level beyond your total).",
+  "victory": "Win when the opponent falls unconscious (the winner may then cast one free spell of the same Te/Fo that bypasses Parma but not Form resistance), surrenders, or fails a Concentration roll.",
+  "note": "Present in the core book; House Tremere specialises (a Minor Magical Focus doubling the lower of Te/Fo). Each round each magus uses one Art to attack and the other to defend, and may swap which is which between rounds."
+}

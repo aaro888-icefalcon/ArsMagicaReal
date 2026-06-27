@@ -1,0 +1,31 @@
+{
+  "type": "creature",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#bestiary",
+  "note": "A starter bestiary across the four Realms + mundane beasts. A creature's Might (Realm) equals its Magic Resistance and fuels level-less powers from a Might Pool. Stat further foes on the fly with `arm.py npc might` and the NPC Statistics Table.",
+  "elements": [
+    {"id":"creature.wolf","type":"creature","name":"Wolf","realm":"Mundane","might":"—","size":-1,"soak":4,"tags":["mundane","beast","predator","forest"],
+     "summary":"A pack predator of erect ears and narrow muzzle, feared across Mythic Europe.","powers":"Ferocity when hungry; Sharp Ears; Pack Leader.","wants":"Hunts livestock and the lone traveller; the wanton killer of folklore."},
+    {"id":"creature.bear","type":"creature","name":"Bear","realm":"Mundane","might":"—","size":2,"soak":10,"tags":["mundane","beast","forest","formidable"],
+     "summary":"A large shaggy forest beast up to 700 pounds, from the Pyrenees to Russia.","powers":"Ferocity when injured; Tough; claws and teeth.","wants":"Forages and hunts; territorial and deadly when wounded or guarding cubs."},
+    {"id":"creature.lion","type":"creature","name":"Lion","realm":"Mundane","might":"—","size":2,"soak":8,"tags":["mundane","beast","apex-predator","legendary"],
+     "summary":"A legendary apex predator with dark mane and fearsome roar.","powers":"Ferocity; Puissant Brawl; large claws and teeth.","wants":"Hunts large game; bold lions attack men, timid ones avoid them."},
+    {"id":"creature.ghostly_warder","type":"creature","name":"Ghostly Warder","realm":"Magic","might":"Magic 10 (Mentem)","size":"—","soak":"—","tags":["magic","spirit","ghost","protective"],
+     "summary":"The non-physical spirit of a dead woman bound to a place, maternal toward her charges.","powers":"Kinesis (moves objects); non-physical, immune to mundane harm.","wants":"Protects children and household; gives motherly counsel from her living memory."},
+    {"id":"creature.magical_wolf","type":"creature","name":"A Magical Wolf","realm":"Magic","might":"Magic 20 (Animal)","size":"—","soak":7,"tags":["magic","animal","forest","leader"],
+     "summary":"A grey wolf, larger than kin, eyes sparkling, warden of all wolves in its range.","powers":"Pack of One (5 duplicates); Terrifying Howl; Wolf Lord (mundane wolves die at its will).","wants":"Guards the health of wild packs; may parley with villages over hunting rights — on its own terms."},
+    {"id":"creature.sir_giles_ghost","type":"creature","name":"Sir Giles, a Ghostly Knight","realm":"Magic","might":"Magic 16 (Mentem)","size":0,"soak":10,"tags":["magic","spirit","ghost","knight"],
+     "summary":"A spectral knight in black mail on a phantom steed, bound by overwhelming pride.","powers":"Corporeal Veil; Phantom Steed; Invisibility; Ride in Dreams (nightmares).","wants":"To make amends to his victim's widow, yet his pride forbids true repentance — so he haunts."},
+    {"id":"creature.faerie_knight","type":"creature","name":"Faerie Knight","realm":"Faerie","might":"Faerie 10 (Corpus)","size":1,"soak":9,"tags":["faerie","knight","chivalry","combat"],
+     "summary":"An armoured faerie clad in silver metal leaves, seeking worthy combat.","powers":"Damaging Effect (+5 weapon); Flight; Shift Human Shapes (sheds armour at will).","wants":"Guards bridges and lonely roads seeking honourable defeat — playing the chivalric role."},
+    {"id":"creature.tarlan_wolf","type":"creature","name":"Tarlan the Wolf","realm":"Faerie","might":"Faerie 20 (Animal)","size":"—","soak":7,"tags":["faerie","predator","hunter","cruel"],
+     "summary":"A deep-black wolf with glinting eyes that hounds lone humans in the wild until they drop.","powers":"Marked Quarry (fear); Prey's Vigor (restores its fatigue but ages the prey a year); Silent Running.","wants":"Hunts humans for the sport of the chase till dawn; respects the Gift, spares children and holy ground."},
+    {"id":"creature.baal_peor","type":"creature","name":"Baal-Peor, Lord of Filth","realm":"Infernal","might":"Infernal 30 (Corpus)","size":2,"soak":8,"tags":["infernal","demon","temptation","greed"],
+     "summary":"A grotesquely fat demon, master of temptation through wealth and filth.","powers":"Form of Woman; Noxious Vomit (corrosive); Swallow; The Wealth of Nations (summon riches).","wants":"Moves mortal riches to sow discord and damn the greedy; never deals honestly."},
+    {"id":"creature.bartholomew","type":"creature","name":"Bartholomew","realm":"Infernal","might":"Infernal 50 (Mentem)","size":0,"soak":8,"tags":["infernal","demon","merchant","corruption"],
+     "summary":"A well-placed merchant demon whose counsel enriches followers while corrupting their souls.","powers":"Merchant's Blessing/Curse (+3/−3 trade); Merchant's Knowledge; Project Blessing/Curse.","wants":"To make merchants sin without noticing — turning even charity selfish."},
+    {"id":"creature.kolazonta","type":"creature","name":"Kolazonta, the Chastiser","realm":"Divine","might":"Divine 30 (Ignem)","size":0,"soak":"—","tags":["divine","angel","punishment","righteous"],
+     "summary":"A grim angel of punishment manifesting as a dark cloud or white fire.","powers":"Chastise the Sinful (plague); Cloud form (immune to physical attack); Fiery Form (+5 nearby).","wants":"To execute the Lord's chastisement without fear or favour, awaiting His command."},
+    {"id":"creature.seferiel","type":"creature","name":"Seferiel","realm":"Divine","might":"Divine 50 (Corpus)","size":1,"soak":20,"tags":["divine","angel","hermetic-concern","judgement"],
+     "summary":"A great angel with golden skin and burning hair, charged with the Hermetic magi.","powers":"Magic (duplicates Hermetic effects, 1 Might per 2 magnitudes); Spirit/Subtle Form; Flaming Greatsword.","wants":"To draw magi toward God and be His vengeance on the wicked."}
+  ]
+}

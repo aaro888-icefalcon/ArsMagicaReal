@@ -1,0 +1,34 @@
+{
+  "id": "arm.aging",
+  "title": "Aging & Crisis",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#aging",
+  "aging_total": "stress die (no botch) + ceil(age/10) − Living Conditions modifier − Longevity Ritual modifier",
+  "longevity_note": "Under a Longevity Ritual, treat rolls of 10+ as 9 until age 35. A high Living Conditions / Longevity modifier means longer life (lower roll).",
+  "living_conditions_examples": {"covenant_with_good_care": 3, "comfortable": 1, "average_peasant": 0, "hard_labour": -1, "squalid": -3},
+  "result_bands": [
+    {"band": "<=2",  "result": "No apparent aging"},
+    {"band": "3-9",  "result": "Apparent age +1 year (no Aging Points)"},
+    {"band": "10-12","result": "+1 Aging Point in any Characteristic (player chooses)"},
+    {"band": "13",   "result": "CRISIS — gain enough Aging Points to reach the next Decrepitude level, then Crisis"},
+    {"band": "14",   "result": "+1 Aging Point in Qik"},
+    {"band": "15",   "result": "+1 Aging Point in Sta"},
+    {"band": "16",   "result": "+1 Aging Point in Per"},
+    {"band": "17",   "result": "+1 Aging Point in Pre"},
+    {"band": "18",   "result": "+1 Aging Point in Str and Sta"},
+    {"band": "19",   "result": "+1 Aging Point in Dex and Qik"},
+    {"band": "20",   "result": "+1 Aging Point in Com and Pre"},
+    {"band": "21",   "result": "+1 Aging Point in Int and Per"},
+    {"band": ">=22", "result": "CRISIS — gain enough Aging Points to reach the next Decrepitude level, then Crisis"}
+  ],
+  "aging_points_rule": "Aging Points accumulate per Characteristic; when a Characteristic's Aging Points exceed |its score|, it drops by 1 and the points reset. Every Aging Point is also XP toward Decrepitude (an Ability: 5/15/30/50/75 pts → score 1/2/3/4/5).",
+  "crisis_total": "simple die + ceil(age/10) + Decrepitude Score",
+  "crisis_bands": [
+    {"band": "<=8",  "result": "Bedridden for a week"},
+    {"band": "9-14", "result": "Bedridden for a month"},
+    {"band": "15",   "result": "Minor illness — Sta stress vs EF 3 (or CrCo20) to survive"},
+    {"band": "16",   "result": "Serious illness — Sta stress vs EF 6 (or CrCo25)"},
+    {"band": "17",   "result": "Major illness — Sta stress vs EF 9 (or CrCo30)"},
+    {"band": "18",   "result": "Critical illness — Sta stress vs EF 12 (or CrCo35)"},
+    {"band": ">=19", "result": "Terminal illness — CrCo40 required to survive"}
+  ]
+}

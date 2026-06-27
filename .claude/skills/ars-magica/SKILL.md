@@ -56,6 +56,7 @@ content are consistent and honest. One CLI (run from the repo root):
 ```
 python3 .claude/skills/ars-magica/bridge/scripts/arm.py <command>
   roll|ability|cast|combat|npc …            # Hermetic resolution (honest dice, shown)
+  certamen|aging|crisis|warping …           # long-term: the wizard's duel, aging & Twilight
   themes new-year|status|record|show …      # YEARLY theme order (constrained + coverage-gated)
   element search|show|insert|surface|new …  # atomic setting library → live Threads/Characters
   realm --aura N --realm Magic|Faerie|Divine|Infernal
@@ -64,9 +65,11 @@ python3 .claude/skills/ars-magica/bridge/scripts/arm.py <command>
   drawn by the saga weights and bound by the constraints in `bridge/theme-weights.md` (Action top-3,
   Social top-4, Personal-or-Social top-2, every theme used once/year). Written to the campaign's
   `adventure.json`; the engine's Adventure Crafter reads it.
-- **Atomic setting elements** live in `bridge/data/elements/*.json`. `element insert <id> --into
-  thread|character` turns a setting fact into a live List entry the dice roll (carrying its payload);
-  `element surface` proposes dormant atoms by relevance to the open Lists and current scene.
+- **Atomic setting elements** (134 across 11 types: houses, tribunals, realms, code clauses, npc
+  archetypes, hooks, factions, locations, creatures, virtues, flaws) live in `bridge/data/elements/*.json`.
+  `element insert <id> --into thread|character` turns a setting fact into a live List entry the dice roll
+  (carrying its payload); `element surface --realm <R>` proposes dormant atoms by relevance to the open
+  Lists and the current scene's Realm/aura.
 - **Rules data** is in `bridge/data/rules/*.json`. arm.py reuses the engine's `lists.py`, so all
   campaign state stays engine-compatible.
 

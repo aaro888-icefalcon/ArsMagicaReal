@@ -1,0 +1,15 @@
+{
+  "id": "arm.casting",
+  "title": "Hermetic casting totals",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#casting-spells",
+  "casting_score": "Technique + Form + Stamina − Encumbrance + Aura Modifier",
+  "totals": {
+    "formulaic":     "Casting Score + die (simple if calm, stress if stressful) ; cast if ≥ Level",
+    "spont_fatiguing":"(Casting Score + stress die) / 2 ; always −1 Fatigue",
+    "spont_nonfatiguing":"Casting Score / 5 ; no die, no botch, no Fatigue",
+    "ritual":        "Casting Score + Artes Liberales + Philosophiae + stress die ; long-term Fatigue"
+  },
+  "formulaic_outcome": "Total ≥ Level → 0 Fatigue. Short by 1-10 → cast, −1 Fatigue. Short by 11+ → fails, −1 Fatigue.",
+  "penetration": "Penetration Total = Casting Total − Spell Level + Penetration Bonus ; affects a target only if > its Magic Resistance.",
+  "magic_resistance": "Base = the most applicable Form score (Vim default); Parma Magica adds 5 × Parma; a creature's MR = its Might (+ aura modifier)."
+}

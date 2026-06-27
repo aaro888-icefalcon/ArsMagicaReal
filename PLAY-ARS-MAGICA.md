@@ -17,6 +17,9 @@ Hermetic rules and the world.
         ├── bridge.md             system-profile.md     interpretation.md
         ├── chaos-tendency.md     theme-weights.md      subsystems.md      seeds.md
         ├── setting-canon.md      character-sheet-template.md
+        ├── scripts/{arm.py, themes.py, resolve.py, elements.py, armdice.py, armcore.py}
+        ├── data/rules/{arts,ease_factors,wounds,fatigue,casting,realm_interaction,npc_statistics}.json
+        ├── data/elements/{houses,tribunals,realms,code_clauses,npc_archetypes,hooks}.json
         ├── generators/{registry.md, houses.json, tribunals.json, hermetic_npc.json,
         │               realm_encounter.json, story_hook.json}
         └── adventures/broken-covenant-of-calebais.md
@@ -41,9 +44,13 @@ python3 .claude/skills/mythic-gm/scripts/bridge.py summary  .claude/skills/ars-m
 # 2. Scaffold a saga
 python3 .claude/skills/mythic-gm/scripts/state.py init campaigns/my-covenant
 
-# 3. Set the saga's Theme order from the Ars Magica weights, then take the first Turn
+# 3. Roll the saga's first (constrained, yearly) Theme order
+python3 .claude/skills/ars-magica/bridge/scripts/arm.py themes new-year --campaign campaigns/my-covenant --year 1220
+
+# 4. Take the first Turn — honest Ars Magica resolution via arm.py
 python3 .claude/skills/mythic-gm/scripts/dice.py scene 5            # Scene Test (Chaos Factor 5)
-python3 .claude/skills/mythic-gm/scripts/dice.py table .claude/skills/ars-magica/bridge/generators/story_hook.json
+python3 .claude/skills/ars-magica/bridge/scripts/arm.py element surface --campaign campaigns/my-covenant --here "covenant,order"
+python3 .claude/skills/ars-magica/bridge/scripts/arm.py cast --te 10 --fo 8 --sta 2 --aura 3 --level 15   # e.g. a magus casts
 python3 .claude/skills/mythic-gm/scripts/tick.py .claude/skills/ars-magica/bridge 1   # world-tick at bookkeeping
 ```
 

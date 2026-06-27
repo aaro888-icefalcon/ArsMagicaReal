@@ -1,0 +1,18 @@
+{
+  "id": "arm.ease_factors",
+  "title": "Ease Factor ladder (Char + Ability + die vs EF)",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#ease-factor",
+  "ladder": [
+    {"ef": 3,  "label": "Simple"},
+    {"ef": 6,  "label": "Easy"},
+    {"ef": 9,  "label": "Average"},
+    {"ef": 12, "label": "Hard"},
+    {"ef": 15, "label": "Very Hard"},
+    {"ef": 18, "label": "Impressive"},
+    {"ef": 21, "label": "Remarkable"},
+    {"ef": 24, "label": "Almost impossible"}
+  ],
+  "characteristics": "-3..+3 (average 0)",
+  "ability_benchmarks": {"moderate": 3, "skilled": 6, "very_skilled": 9},
+  "rounding": "When a rule divides and is silent on rounding, round down."
+}

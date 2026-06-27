@@ -50,6 +50,26 @@ discipline. This skill fills the engine's hooks with **Ars Magica 5th Edition** 
    Fate Question for world questions → bookkeep, adjust Chaos honestly, and run the world-tick
    (`tick.py .claude/skills/ars-magica/bridge <scene#>`).
 
+## The scripted layer — `bridge/scripts/arm.py`
+Beyond the prose, the bridge ships **callable** Ars Magica logic so resolution, themes, and setting
+content are consistent and honest. One CLI (run from the repo root):
+```
+python3 .claude/skills/ars-magica/bridge/scripts/arm.py <command>
+  roll|ability|cast|combat|npc …            # Hermetic resolution (honest dice, shown)
+  themes new-year|status|record|show …      # YEARLY theme order (constrained + coverage-gated)
+  element search|show|insert|surface|new …  # atomic setting library → live Threads/Characters
+  realm --aura N --realm Magic|Faerie|Divine|Infernal
+```
+- **Yearly themes:** the 5 theme priorities are re-rolled every in-game year (`themes new-year`),
+  drawn by the saga weights and bound by the constraints in `bridge/theme-weights.md` (Action top-3,
+  Social top-4, Personal-or-Social top-2, every theme used once/year). Written to the campaign's
+  `adventure.json`; the engine's Adventure Crafter reads it.
+- **Atomic setting elements** live in `bridge/data/elements/*.json`. `element insert <id> --into
+  thread|character` turns a setting fact into a live List entry the dice roll (carrying its payload);
+  `element surface` proposes dormant atoms by relevance to the open Lists and current scene.
+- **Rules data** is in `bridge/data/rules/*.json`. arm.py reuses the engine's `lists.py`, so all
+  campaign state stays engine-compatible.
+
 ## What this bridge provides (the hooks it fills)
 - **resolve** → `bridge/system-profile.md` (the full Hermetic resolution: dice, Arts, Certámen, combat, wounds, NPC stats).
 - **meaning** → `bridge/interpretation.md` (Order-of-Hermes & four-Realms GM lens; how magi, the Church, nobles, faeries, demons, and the Divine think and act).

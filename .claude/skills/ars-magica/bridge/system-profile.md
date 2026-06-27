@@ -5,6 +5,13 @@
 > **Precedence:** this profile > the rulebooks in `reviewed/` > training knowledge.
 > Faithful to *Ars Magica – Definitive Edition (Core Rules)*; chapter cites in‑line.
 
+> **Scripted resolution (preferred).** The formulas below are encoded in **`scripts/arm.py`** so play is
+> consistent and the dice are honest and shown — use it instead of doing the math by hand:
+> `arm.py roll [stress|simple] [--botch N]` · `arm.py ability --char N --ability N [--ef N]` ·
+> `arm.py cast --te N --fo N --sta N --aura N --level N [--kind formulaic|spont-fat|spont-nonfat|ritual]` ·
+> `arm.py combat init\|attack …` · `arm.py npc stat\|might …` · `arm.py realm --aura N --realm <R>`.
+> The data tables live in `data/rules/*.json`. This prose remains the reference for *why* each number is what it is.
+
 ## Dice convention — the d10 "stress" and "simple" die  (Ch.1, Die Rolls)
 All randomness goes through the engine: **`python3 ../../mythic-gm/scripts/dice.py roll 1d10`**.
 The engine reports a face of **1–10**. Map it to the Ars Magica die:

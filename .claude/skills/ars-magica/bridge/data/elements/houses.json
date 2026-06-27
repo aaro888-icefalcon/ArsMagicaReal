@@ -1,0 +1,30 @@
+{
+  "type": "house",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#the-houses-of-hermes",
+  "elements": [
+    {"id":"house.bonisagus","type":"house","name":"House Bonisagus","tags":["order","true-lineage","research","politics"],"realm":null,
+     "summary":"Masters of Magic Theory and Hermetic research; Trianomae politicians hold the Order together.","wants":"Advance magic and preserve the Order's unity.","as_character":"A brilliant researcher or a consummate Order politician.","as_thread":"A Bonisagus seeks a rare text, an apprentice, or a vote.","relations":["faction.order_of_hermes"]},
+    {"id":"house.bjornaer","type":"house","name":"House Bjornaer","tags":["order","mystery-cult","beast","heartbeast","wild"],"realm":null,
+     "summary":"Beast-souled magi, each with a personal heartbeast animal form.","wants":"Understand the bestial/animal nature; guard the wild.","as_character":"An insular, primal magus wary of outsiders.","as_thread":"A Bjornaer rite or a wild place needs defending."},
+    {"id":"house.criamon","type":"house","name":"House Criamon","tags":["order","mystery-cult","enigma","mystic","cryptic"],"realm":null,
+     "summary":"Body-marked mystics pursuing 'the Enigma'; disdain raw power.","wants":"Mystical understanding (freeing souls, the nature of time).","as_character":"A cryptic seer who speaks in riddles and alien logic.","as_thread":"A Criamon riddle or vision draws the covenant into a Mystery."},
+    {"id":"house.ex_miscellanea","type":"house","name":"House Ex Miscellanea","tags":["order","societas","hedge","diverse","outsider"],"realm":null,
+     "summary":"Vast, disorganized House of hedge traditions; accepts almost any Gifted wizard.","wants":"A home for the unaligned and outsider.","as_character":"A half-Hermetic wizard of an obscure tradition.","as_thread":"A strange hedge-tradition power complicates Hermetic law."},
+    {"id":"house.flambeau","type":"house","name":"House Flambeau","tags":["order","societas","fire","martial","combat","honour"],"realm":null,
+     "summary":"Combat magi of fire and destruction; the Order's warriors, with an honour strand.","wants":"Struggle and the honourable application of force.","as_character":"A bold, aggressive fire-magus, sometimes chivalrous.","as_thread":"A Flambeau feud, crusade, or Wizard's War looms.","relations":["hook.wizards_war"]},
+    {"id":"house.guernicus","type":"house","name":"House Guernicus (Quaesitores)","tags":["order","true-lineage","law","quaesitor","justice"],"realm":null,
+     "summary":"The Order's lawgivers; their Quaesitores investigate crimes against the Code.","wants":"The Code enforced and the Order preserved.","as_character":"A stern investigator-judge empowered by the Tribunal.","as_thread":"A Quaesitor investigates a (suspected) breach of the Code.","relations":["faction.order_of_hermes","code_clause.endanger_order"]},
+    {"id":"house.jerbiton","type":"house","name":"House Jerbiton","tags":["order","societas","art","civilization","mundane","gentle-gift"],"realm":null,
+     "summary":"Magi of art, civilization, and the mundane world; brokers with nobility and Church.","wants":"Heal the rift between magi and humanity; defend civilization.","as_character":"A cultured ambassador or aesthete, often Gentle-Gifted.","as_thread":"A Jerbiton needs help with a mundane patron or a work of art."},
+    {"id":"house.mercere","type":"house","name":"House Mercere","tags":["order","true-lineage","messenger","redcap","neutral"],"realm":null,
+     "summary":"The messengers; Gifted and unGifted Redcaps who carry news and bind the Order.","wants":"Messages delivered; neutrality maintained.","as_character":"A reliable, apolitical Redcap courier.","as_thread":"A Redcap brings urgent news, a summons, or a sensitive package.","relations":["npc_archetype.redcap","hook.redcap_news"]},
+    {"id":"house.merinita","type":"house","name":"House Merinita","tags":["order","mystery-cult","faerie","arcadia","strange"],"realm":"Faerie",
+     "summary":"Faerie-bound magi who study and defend the fae; seek answers in Arcadia.","wants":"Study and defend faeries; walk the bounds of Arcadia.","as_character":"A strange magus as uncanny as the fae they study.","as_thread":"A Merinita's faerie pact or quest entangles the covenant.","relations":["realm.faerie","hook.faerie_bargain"]},
+    {"id":"house.tremere","type":"house","name":"House Tremere","tags":["order","true-lineage","discipline","hierarchy","certamen","strategy"],"realm":null,
+     "summary":"Disciplined strategists who prize hierarchy and planning; invented Certámen.","wants":"Order, control, and the effective execution of House plans.","as_character":"A methodical magus who respects hierarchy and the long game.","as_thread":"Tremere maneuvering puts the covenant in a larger scheme."},
+    {"id":"house.tytalus","type":"house","name":"House Tytalus","tags":["order","societas","conflict","challenge","ambition"],"realm":null,
+     "summary":"Masters of every kind of conflict; thrive on struggle; once tainted by diabolism, since purged.","wants":"Perpetual contest; to test others' strengths.","as_character":"A provocative magus who embraces challenge for its own sake.","as_thread":"A Tytalus picks a contest of wits, law, or magic with the covenant."},
+    {"id":"house.verditius","type":"house","name":"House Verditius","tags":["order","mystery-cult","craft","enchantment","items","pride","vendetta"],"realm":null,
+     "summary":"Unmatched crafters of enchanted items; proud, vendetta-prone; bound to casting tools.","wants":"Craft the finest items and prove superiority.","as_character":"A proud enchanter selling devices, nursing a long vendetta.","as_thread":"A Verditius item, contest, or feud is on offer or in play."}
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "arm.npc_statistics",
+  "title": "On-the-fly NPC statting (NPC Statistics Table)",
+  "source": "mythic-gm npc_statistics + Ars Magica creature format",
+  "method": "Decide the expected value for the trait, ask a Fate Question, then scale:",
+  "scale": {"yes": "as expected (×1.0)", "exc_yes": "+25% (×1.25)", "no": "−25% (×0.75)", "exc_no": "−50% (×0.5)"},
+  "human_units": "Characteristics (−3..+3), Size, relevant Abilities, Soak (Sta + armour), Fatigue/Wound bands by Size.",
+  "creature_units": "Add a Might (Realm) score — it equals the creature's Magic Resistance and fuels level-less powers from a Might Pool. Might 20 challenges a fresh magus, 40 a mid-age one, 75 ≈ near-immune to Hermetic magic."
+}

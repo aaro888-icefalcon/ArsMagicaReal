@@ -1,6 +1,8 @@
 # Bridge manifest — Ars Magica 5e (Mythic Europe)
 
-This companion supplies the **Ars Magica 5th Edition (Definitive Edition)** ruleset and the **Mythic Europe** setting (year 1220) to the mythic-gm engine: Hermetic task resolution and combat (`system-profile.md`), the Order-of-Hermes / four-Realms GM lens (`interpretation.md`), fixed saga theme weights, chaos lean, world-tick subsystems (covenant seasons, aging, warping, vis, Order & mundane politics), a covenant-saga seed deck, the setting ground truth (`setting-canon.md`), five faithful generators, and an ingested classic adventure (*The Broken Covenant of Calebais*). Every uncertain outcome still runs through the engine's honest, shown dice. A partial bridge always plays; unfilled hooks use the engine default.
+This companion supplies the **Ars Magica 5th Edition (Definitive Edition)** ruleset and the **Mythic Europe** setting (year 1220) to the mythic-gm engine: Hermetic task resolution and combat (`system-profile.md`), the Order-of-Hermes / four-Realms GM lens (`interpretation.md`), the yearly constrained theme engine, chaos lean, world-tick subsystems (covenant seasons, aging, warping, vis, Order & mundane politics), a covenant-saga seed deck, the setting ground truth (`setting-canon.md`), five faithful generators, and an ingested classic adventure (*The Broken Covenant of Calebais*). Every uncertain outcome still runs through honest, shown dice. A partial bridge always plays; unfilled hooks use the engine default.
+
+**Scripted layer.** Beyond the prose hooks, the bridge ships callable logic and data: **`scripts/arm.py`** (one CLI: `roll/ability/cast/combat/npc` resolution · `themes new-year/status/record` the yearly constrained theme engine · `element search/show/insert/surface/new` the atomic setting library · `realm` aura modifiers), backed by **`data/rules/*.json`** (Arts, ease factors, wounds, fatigue, casting, realm interaction, NPC stats) and **`data/elements/*.json`** (Houses, Tribunals, Realms, Code clauses, NPC archetypes, hooks — atoms that insert into the live `threads.json`/`characters.json` and surface by relevance). The prose files remain the human/GM lens; the scripts are the consistent, called layer. arm.py imports the engine's `lists.py`, so all campaign state stays in the engine schema.
 
 ```json
 {
@@ -16,7 +18,8 @@ This companion supplies the **Ars Magica 5th Edition (Definitive Edition)** rule
     "subsystems": "subsystems.md",
     "seeds": "seeds.md",
     "canon": "setting-canon.md",
-    "adventure": "adventures/broken-covenant-of-calebais.md"
+    "adventure": "adventures/broken-covenant-of-calebais.md",
+    "scripts": "scripts/arm.py"
   },
   "generators_map": {
     "character": { "mode": "conjunction", "table": "generators/hermetic_npc.json",

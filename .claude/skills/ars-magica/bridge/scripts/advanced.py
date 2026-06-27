@@ -9,16 +9,31 @@ import armdice as D
 
 # ---------------------------------------------------------------- Certámen
 def cmd_certamen(argv):
+    import character
+    pc = character.pc_from_argv(argv)          # attacker (--pc)
+    defc = None
+    if C.opt(argv, "--pc-def"): defc = character.load(C.opt(argv, "--campaign"), C.opt(argv, "--pc-def"))
     if len(argv) > 1 and argv[1] == "init":
-        qik = C.opt(argv, "--qik", 0, int); fin = C.opt(argv, "--finesse", 0, int)
+        qik = C.opt(argv, "--qik", character.char_val(pc, "Qik") if pc else 0, int)
+        fin = C.opt(argv, "--finesse", character.ability_score(pc, "Finesse") if pc else 0, int)
         r = D.stress_die(1)
-        print(f"⚔️  [Certámen Init] {D.render(r)} | Qik {qik:+d} + Finesse {fin} + die = "
+        print(f"⚔️  [Certámen Init]{' '+pc['name'] if pc else ''} {D.render(r)} | Qik {qik:+d} + Finesse {fin} + die = "
               f"{0 if r['botch'] else qik + fin + r['value']}")
         return
-    a_pre = C.opt(argv, "--a-pre", 0, int); a_art = C.opt(argv, "--a-art", 0, int)
-    a_int = C.opt(argv, "--a-int", 0, int); a_pen = C.opt(argv, "--a-pen", 0, int)
-    d_per = C.opt(argv, "--d-per", 0, int); d_art = C.opt(argv, "--d-art", 0, int)
-    d_sta = C.opt(argv, "--d-sta", 0, int); d_parma = C.opt(argv, "--d-parma", 0, int)
+    # --a-art / --d-art may be an Art NAME (resolved from the PC) or a numeric score
+    def art_or_num(flag, who):
+        v = C.opt(argv, flag)
+        if v is None: return 0
+        try: return int(v)
+        except ValueError: return character.art_score(who, v) if who else 0
+    a_pre = C.opt(argv, "--a-pre", character.char_val(pc, "Pre") if pc else 0, int)
+    a_int = C.opt(argv, "--a-int", character.char_val(pc, "Int") if pc else 0, int)
+    a_pen = C.opt(argv, "--a-pen", character.ability_score(pc, "Penetration") if pc else 0, int)
+    a_art = art_or_num("--a-art", pc)
+    d_per = C.opt(argv, "--d-per", character.char_val(defc, "Per") if defc else 0, int)
+    d_sta = C.opt(argv, "--d-sta", character.char_val(defc, "Sta") if defc else 0, int)
+    d_parma = C.opt(argv, "--d-parma", character.parma(defc) if defc else 0, int)
+    d_art = art_or_num("--d-art", defc)
     ra = D.stress_die(1); rd = D.stress_die(1)
     atk = 0 if ra["botch"] else a_pre + a_art + ra["value"]
     dfn = 0 if rd["botch"] else d_per + d_art + rd["value"]
@@ -45,8 +60,12 @@ def _aging_band(total):
     return bands[-1]["result"]
 
 def cmd_aging(argv):
-    age = C.opt(argv, "--age", 35, int); living = C.opt(argv, "--living", 0, int)
-    longev = C.opt(argv, "--longevity", 0, int)
+    import character
+    pc = character.pc_from_argv(argv)
+    age = C.opt(argv, "--age", None, int)
+    if pc and age is None: age = pc["age"]["actual"]
+    age = age if age is not None else 35
+    living = C.opt(argv, "--living", 0, int); longev = C.opt(argv, "--longevity", 0, int)
     r = D.stress_die(0)          # no-botch stress die
     base = age // 10 + (1 if age % 10 else 0)   # ceil(age/10)
     raw = r["value"]
@@ -79,9 +98,20 @@ def _warp_score(points):
     return score
 
 def cmd_warping(argv):
-    pts = C.opt(argv, "--points", 0, int); prev = C.opt(argv, "--prev", None, int)
+    import character
+    pc = character.pc_from_argv(argv); add = C.opt(argv, "--add", None, int)
+    if pc:
+        prev_pts = pc["warping"]["points"]
+        pts = prev_pts + (add or 0)
+        prev = prev_pts
+        if add:
+            pc["warping"]["points"] = pts; pc["warping"]["score"] = _warp_score(pts)
+            character.save(C.opt(argv, "--campaign"), pc)
+    else:
+        pts = C.opt(argv, "--points", 0, int); prev = C.opt(argv, "--prev", None, int)
     score = _warp_score(pts)
-    print(f"🌀 [Warping] total {pts} Warping Point(s) → Warping Score {score}")
+    who = (pc["name"] + ": ") if pc else ""
+    print(f"🌀 [Warping] {who}total {pts} Warping Point(s) → Warping Score {score}" + (f"  (+{add})" if pc and add else ""))
     th = C.load_rule("warping")["thresholds"]
     nxt = next((t for t in th if t["points_to_reach"] > pts), None)
     if nxt: print(f"   next: Score {nxt['score']} at {nxt['points_to_reach']} points ({nxt['points_to_reach'] - pts} more)")

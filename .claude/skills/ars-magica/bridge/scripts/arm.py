@@ -21,10 +21,12 @@ rolled honestly and shown; campaign state is read/written in the engine's schema
     arm.py themes new-year --campaign DIR [--year N] [--force]
     arm.py themes status|show|record --campaign DIR [--used Mystery,Social]
 
-  CHARACTER CREATOR — guided, validated build (chargen.py)
-    arm.py char new --type magus|companion|grog [--name N] [--campaign DIR]
-    arm.py char houses | points --set "Int=3,…" | vf --type T --virtues … --flaws …
-    arm.py char cost --ability N|--art N | spellcap --te N --fo N --int N --mt N | abilities | budget --type T
+  CHARACTER — JSON store (characters/<slug>.json) + guided creator (chargen.py / character.py)
+    arm.py char new --type magus|companion|grog [--name N] [--house X] --campaign DIR
+    arm.py char set|art|ability|spell|virtue|flaw|weapon|wound|fatigue|vis --pc N --campaign DIR …
+    arm.py char show|sheet|list|validate --campaign DIR [--pc N]
+    arm.py char houses | points --set "Int=3,…" | vf --type T … | cost … | spellcap … | budget …
+    (resolution reads the JSON: add  --pc N --campaign DIR  to cast/combat/ability/aging/certamen/warping)
 
   ELEMENTS — atomic setting library, insert/surface into the live Lists (elements.py)
     arm.py element search|show|insert|surface|new …

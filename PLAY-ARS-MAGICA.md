@@ -48,12 +48,17 @@ python3 .claude/skills/mythic-gm/scripts/state.py init campaigns/my-covenant
 # 3. Roll the saga's first (constrained, yearly) Theme order
 python3 .claude/skills/ars-magica/bridge/scripts/arm.py themes new-year --campaign campaigns/my-covenant --year 1220
 
-# 4. Build your magus with the guided, validated creator (scaffolds character-sheet.md)
-python3 .claude/skills/ars-magica/bridge/scripts/arm.py char new --type magus --name "Tiberius" --campaign campaigns/my-covenant
-python3 .claude/skills/ars-magica/bridge/scripts/arm.py char points --set "Int=3,Sta=2,Per=1,Qik=1,Pre=0,Com=0,Str=-1,Dex=0"
-python3 .claude/skills/ars-magica/bridge/scripts/arm.py char vf --type magus --virtues "the_gift,hermetic_magus,gentle_gift" --flaws "weak_parma,difficult_spontaneous,driven"
+# 4. Build your magus — written to characters/<slug>.json (the source of truth; sheet is rendered)
+A=.claude/skills/ars-magica/bridge/scripts/arm.py; M="campaigns/my-covenant"
+python3 $A char new --type magus --name "Tiberius" --house Bonisagus --campaign $M
+python3 $A char set --pc Tiberius --campaign $M --set "characteristics.Int=3" --set "characteristics.Sta=2"
+python3 $A char art --pc Tiberius --campaign $M --art Creo --score 10
+python3 $A char art --pc Tiberius --campaign $M --art Ignem --score 8
+python3 $A char spell --pc Tiberius --campaign $M --name "Pilum of Fire" --tech Creo --form Ignem --level 20
+python3 $A char validate --pc Tiberius --campaign $M
 
-# 5. Take the first Turn — honest Ars Magica resolution via arm.py
+# 5. Take the first Turn — scripts read the JSON via --pc (no retyping stats)
+python3 $A cast --pc Tiberius --campaign $M --spell "Pilum of Fire" --aura 3
 python3 .claude/skills/mythic-gm/scripts/dice.py scene 5            # Scene Test (Chaos Factor 5)
 python3 .claude/skills/ars-magica/bridge/scripts/arm.py element surface --campaign campaigns/my-covenant --here "covenant,order"
 python3 .claude/skills/ars-magica/bridge/scripts/arm.py cast --te 10 --fo 8 --sta 2 --aura 3 --level 15   # e.g. a magus casts

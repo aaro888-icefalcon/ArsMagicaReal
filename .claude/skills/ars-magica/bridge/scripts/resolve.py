@@ -27,27 +27,55 @@ def cmd_roll(argv):
     print("🎲 " + D.render(r))
 
 def cmd_ability(argv):
-    """Characteristic + Ability + die vs Ease Factor."""
-    char = C.opt(argv, "--char", 0, int); ab = C.opt(argv, "--ability", 0, int)
+    """Characteristic + Ability + die vs Ease Factor. With --pc, --stat NAME / --skill NAME read the JSON."""
+    import character
+    pc = character.pc_from_argv(argv)
+    lbl = ""
+    if pc:
+        stat = C.opt(argv, "--stat"); skill = C.opt(argv, "--skill")
+        char = character.char_val(pc, stat) if stat else 0
+        ab = character.ability_score(pc, skill) if skill else 0
+        lbl = f" [{pc['name']}: {stat or '?'} {char:+d}, {skill or '?'} {ab}]"
+    else:
+        char = C.opt(argv, "--char", 0, int); ab = C.opt(argv, "--ability", 0, int)
     ef = C.opt(argv, "--ef", None, int); stress = not C.has(argv, "--simple")
     botch = C.opt(argv, "--botch", 1, int)
     r = _die(stress, botch)
     total = (char + ab + r["value"]) if not r["botch"] else 0
-    line = f"[Adjudication] {D.render(r)} | Char {char:+d} + Ability {ab:+d} + die {r['value']} = {total}"
+    line = f"[Adjudication]{lbl} {D.render(r)} | Char {char:+d} + Ability {ab:+d} + die {r['value']} = {total}"
     if ef is not None:
         line += f"  vs EF {ef} → {'SUCCESS' if total >= ef else 'FAILURE'}" + (" (BOTCH)" if r['botch'] else "")
     print("⚖️  " + line)
 
 def cmd_cast(argv):
-    te = C.opt(argv, "--te", 0, int); fo = C.opt(argv, "--fo", 0, int)
-    sta = C.opt(argv, "--sta", 0, int); aura = C.opt(argv, "--aura", 0, int)
-    enc = C.opt(argv, "--enc", 0, int); level = C.opt(argv, "--level", 0, int)
+    import character
+    pc = character.pc_from_argv(argv)
+    te = C.opt(argv, "--te", None, int); fo = C.opt(argv, "--fo", None, int); sta = C.opt(argv, "--sta", None, int)
+    level = C.opt(argv, "--level", None, int); pen = C.opt(argv, "--pen", 0, int)
+    artes = C.opt(argv, "--artes", None, int); philos = C.opt(argv, "--philos", None, int)
+    tech = C.opt(argv, "--tech"); form = C.opt(argv, "--form"); spell = C.opt(argv, "--spell")
+    tag = ""
+    if pc:
+        if spell:
+            sp = next((s for s in pc.get("spells", []) if s["name"].lower() == spell.lower()), None)
+            if not sp: sys.exit(f"{pc['name']} doesn't know '{spell}'")
+            tech, form = tech or sp.get("tech"), form or sp.get("form")
+            if level is None: level = sp.get("level")
+            tag = f" [{pc['name']} casts {spell}]"
+        else:
+            tag = f" [{pc['name']}: {tech or '?'}{form or '?'}]"
+        if te is None and tech: te = character.art_score(pc, tech)
+        if fo is None and form: fo = character.art_score(pc, form)
+        if sta is None: sta = character.char_val(pc, "Sta")
+        if artes is None: artes = character.ability_score(pc, "Artes Liberales")
+        if philos is None: philos = character.ability_score(pc, "Philosophiae")
+        if pen == 0: pen = character.ability_score(pc, "Penetration")
+    te = te or 0; fo = fo or 0; sta = sta or 0; artes = artes or 0; philos = philos or 0; level = level or 0
+    aura = C.opt(argv, "--aura", 0, int); enc = C.opt(argv, "--enc", 0, int)
     kind = C.opt(argv, "--kind", "formulaic")
     calm = C.has(argv, "--calm"); botch = C.opt(argv, "--botch", 1, int)
-    pen = C.opt(argv, "--pen", 0, int)
-    artes = C.opt(argv, "--artes", 0, int); philos = C.opt(argv, "--philos", 0, int)
     score = te + fo + sta - enc + aura
-    head = f"Casting Score = Te {te} + Fo {fo} + Sta {sta} − Enc {enc} + Aura {aura:+d} = {score}"
+    head = f"Casting{tag} Score = Te {te} + Fo {fo} + Sta {sta} − Enc {enc} + Aura {aura:+d} = {score}"
     if kind == "spont-nonfat":
         total = score // 5
         print(f"✨ [Adjudication] {head}\n   Spontaneous (non-fatiguing) = Score/5 = {total}  (no die, no botch, no Fatigue)")
@@ -79,16 +107,22 @@ def _cast_outcome(total, level, pen, fatiguing):
           f"({'affects targets with MR < ' + str(pt) if pt > 0 else 'no penetration — fails vs any Magic Resistance'})")
 
 def cmd_combat(argv):
+    import character
     sub = argv[1] if len(argv) > 1 else ""
     botch = C.opt(argv, "--botch", 1, int)
+    pc = character.pc_from_argv(argv); wname = C.opt(argv, "--weapon")
+    wpn = None
+    if pc and wname:
+        wpn = next((w for w in pc.get("combat", []) if w["name"].lower() == wname.lower()), None)
+        if not wpn: sys.exit(f"{pc['name']} has no weapon '{wname}'")
     if sub == "init":
-        mod = C.opt(argv, "--mod", 0, int); r = D.stress_die(botch)
-        print(f"⚔️  [Init] {D.render(r)} | Qik+wpn {mod:+d} + die {0 if r['botch'] else r['value']} = "
-              f"{0 if r['botch'] else mod + r['value']}")
+        mod = C.opt(argv, "--mod", wpn["init"] if wpn else 0, int); r = D.stress_die(botch)
+        print(f"⚔️  [Init]{' '+pc['name'] if pc else ''} {D.render(r)} | Qik+wpn {mod:+d} + die "
+              f"{0 if r['botch'] else r['value']} = {0 if r['botch'] else mod + r['value']}")
         return
     if sub == "attack":
-        atk = C.opt(argv, "--atk", 0, int); dfn = C.opt(argv, "--def", 0, int)
-        dam = C.opt(argv, "--dam", 0, int); soak = C.opt(argv, "--soak", 0, int)
+        atk = C.opt(argv, "--atk", wpn["attack"] if wpn else 0, int); dfn = C.opt(argv, "--def", 0, int)
+        dam = C.opt(argv, "--dam", wpn["damage"] if wpn else 0, int); soak = C.opt(argv, "--soak", 0, int)
         size = C.opt(argv, "--size", 0, int)
         ra = D.stress_die(botch); rd = D.stress_die(botch)
         atk_total = 0 if ra["botch"] else atk + ra["value"]

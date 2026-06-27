@@ -222,18 +222,23 @@ def cmd_new(argv):
     print("\n   Commands: char houses · char points · char vf · char cost · char spellcap · char abilities · char budget")
     campaign = C.opt(argv, "--campaign")
     if campaign:
-        path = os.path.join(campaign, "character-sheet.md")
+        import character
+        path = os.path.join(character._dir(campaign), character.slug(name) + ".json")
         if os.path.exists(path):
-            print(f"\n   (sheet already exists at {path} — not overwritten)")
+            print(f"\n   ({path} already exists — not overwritten)")
         else:
-            tmpl = os.path.join(C.BRIDGE, "character-sheet-template.md")
-            body = open(tmpl, encoding="utf-8").read().replace("<name>", name)
-            os.makedirs(campaign, exist_ok=True)
-            open(path, "w", encoding="utf-8").write(body)
-            print(f"\n   ✔ scaffolded {path} — fill it as you make choices.")
+            ch = character.default_char(typ, name, age=age or 25, house=C.opt(argv, "--house", ""))
+            character.save(campaign, ch)       # writes the JSON + renders character-sheet.md
+            print(f"\n   ✔ created {path} (the JSON source of truth) and rendered character-sheet.md.")
+            print("   Build it: `char set/ability/art/spell/virtue/flaw/weapon …`; check with `char validate`.")
+
+STORE_CMDS = {"set", "ability", "art", "spell", "virtue", "flaw", "weapon",
+              "wound", "fatigue", "vis", "show", "sheet", "list", "validate"}
 
 def run(argv):
     if not argv or argv[0] in ("-h", "--help"): print(__doc__); return
+    if argv[0] in STORE_CMDS:                          # JSON character store (character.py)
+        import character; character.dispatch(argv); return
     {"new": cmd_new, "houses": cmd_houses, "points": cmd_points, "vf": cmd_vf, "cost": cmd_cost,
      "spellcap": cmd_spellcap, "abilities": cmd_abilities, "budget": cmd_budget}.get(
         argv[0], lambda a: sys.exit(f"unknown char command '{argv[0]}'"))(argv)

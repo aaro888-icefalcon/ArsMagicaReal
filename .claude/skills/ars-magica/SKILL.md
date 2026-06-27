@@ -39,10 +39,13 @@ discipline. This skill fills the engine's hooks with **Ars Magica 5th Edition** 
    python3 .claude/skills/mythic-gm/scripts/state.py init campaigns/<your-saga>
    ```
    Then build the troupe's first **magus** (and a companion/grog) with the **character creator**:
-   `arm.py char new --type magus --name "<name>" --campaign campaigns/<your-saga>` scaffolds the
-   sheet and prints the 12-step guide; validate each step (`char points`, `char vf`, `char spellcap`,
-   `char cost`, `char budget`, `char houses`). Then seed 1–2 Threads from the backstory onto the
-   Lists, frame the First Scene (not tested), and stop on "What do you do?".
+   `arm.py char new --type magus --name "<name>" --campaign campaigns/<your-saga>` writes the PC as
+   **`characters/<slug>.json`** (the source of truth; `character-sheet.md` is rendered from it). Fill
+   it with `char set/art/ability/spell/virtue/flaw/weapon`, validate with `char validate`, and use
+   `char points/vf/spellcap/cost/budget/houses` to check budgets as you choose. In play, the scripts
+   read the JSON directly — `arm.py cast --pc <name> --campaign <dir> --spell "<known spell>"` pulls
+   the magus's Arts, Stamina, and Penetration automatically. Then seed 1–2 Threads from the backstory,
+   frame the First Scene (not tested), and stop on "What do you do?".
 3. **Optional published adventure:** to run the bundled classic, load
    `bridge/adventures/broken-covenant-of-calebais.md` (pure-sandbox clusters + fragments;
    Diminisher ⅓ for a small solo party) and seed its Threads/Characters/Features.
@@ -58,7 +61,8 @@ content are consistent and honest. One CLI (run from the repo root):
 python3 .claude/skills/ars-magica/bridge/scripts/arm.py <command>
   roll|ability|cast|combat|npc …            # Hermetic resolution (honest dice, shown)
   certamen|aging|crisis|warping …           # long-term: the wizard's duel, aging & Twilight
-  char new|houses|points|vf|spellcap|cost|budget|abilities …   # guided, validated character creator
+  char new|set|art|ability|spell|virtue|flaw|weapon|show|validate …   # JSON character store
+  char houses|points|vf|spellcap|cost|budget|abilities …       # guided, validated creator
   themes new-year|status|record|show …      # YEARLY theme order (constrained + coverage-gated)
   element search|show|insert|surface|new …  # atomic setting library → live Threads/Characters
   realm --aura N --realm Magic|Faerie|Divine|Infernal

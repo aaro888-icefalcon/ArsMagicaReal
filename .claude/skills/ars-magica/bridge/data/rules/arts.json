@@ -1,0 +1,25 @@
+{
+  "id": "arm.arts",
+  "title": "The 15 Hermetic Arts",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#the-hermetic-arts",
+  "techniques": {
+    "Creo":     "I create — make things better/whole; create from nothing; heal (cannot exceed natural perfection).",
+    "Intellego":"I perceive — gather true information; not deceived by mundane disguise.",
+    "Muto":     "I transform — grant properties a thing cannot naturally have; cannot directly injure.",
+    "Perdo":    "I destroy — make worse or destroy; opposite of Creo.",
+    "Rego":     "I control — move/shape/command into a state it can naturally have."
+  },
+  "forms": {
+    "Animal":  "Animals of all kinds (not people).",
+    "Aquam":   "Water and all liquids.",
+    "Auram":   "Air, wind, weather, gases.",
+    "Corpus":  "Human bodies (living, dead, human-seeming magical/faerie bodies).",
+    "Herbam":  "Plants and dead plant matter (wood, linen).",
+    "Ignem":   "Fire, heat, and light.",
+    "Imaginem":"Species/images — sights, sounds, smells (illusion); changes appearance, not substance.",
+    "Mentem":  "Minds, thoughts, spirits.",
+    "Terram":  "Solids, especially earth and stone.",
+    "Vim":     "Raw magical power; affects magical, faerie, divine, and infernal things."
+  },
+  "form_bonus": "A Form score also gives passive defence = Form/5 (round up) vs related mundane harm; bonuses do not stack."
+}

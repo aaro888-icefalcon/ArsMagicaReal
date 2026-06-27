@@ -1,0 +1,16 @@
+{ "id":"arsmagica.realm_encounter", "title":"Supernatural Encounter by Realm", "type":"list_d100", "dice":"1d100",
+  "note":"generate:element — what the uncanny (or the mundane world) throws at the covenant. The Realm tag governs behaviour (see interpretation.md) and which aura is in play. Supernatural foes carry a Might (Realm) = their Magic Resistance.",
+  "entries":[
+    {"min":1,"max":12,"value":"Magic — a proud beast of virtue or magical animal guarding a rich vis source."},
+    {"min":13,"max":22,"value":"Magic — an indifferent elemental or spirit of place (mountain, storm, river) that may bargain on its own terms."},
+    {"min":23,"max":34,"value":"Faerie — a trickster fae demanding a bargain, bound to play out its story; honours the letter, exploits the wording."},
+    {"min":35,"max":44,"value":"Faerie — a faerie luring intruders into its tale (a Wild Hunt, a tricked giant, a glamoured court)."},
+    {"min":45,"max":52,"value":"Infernal — a demon tempting a covenant member toward sin or a diabolical pact; never bargains honestly."},
+    {"min":53,"max":58,"value":"Infernal — a diabolist or infernal cult working corruption from within an Infernal aura."},
+    {"min":59,"max":66,"value":"Divine — a holy site, relic, or strong Dominion aura that suppresses and weakens Hermetic magic."},
+    {"min":67,"max":72,"value":"Divine — a saint, holy hermit, or person of True Faith whose presence resists demons and magic alike."},
+    {"min":73,"max":80,"value":"Mundane — bandits or outlaws on the roads near the covenant."},
+    {"min":81,"max":87,"value":"Mundane — plague, famine, or fire striking the covenant's covenfolk and neighbours."},
+    {"min":88,"max":94,"value":"Mundane — a suspicious mob or fearful villagers turning against the 'witches' in their midst."},
+    {"min":95,"max":100,"value":"Mundane — a feudal lord, tax collector, or Church official intruding on covenant lands."}
+  ] }

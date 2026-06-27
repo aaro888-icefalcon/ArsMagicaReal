@@ -1,0 +1,14 @@
+{
+  "type": "realm",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#the-realms",
+  "elements": [
+    {"id":"realm.magic","type":"realm","name":"The Magic Realm","tags":["magic","aura","vis","beast","spirit","essential-nature"],"realm":"Magic",
+     "summary":"'The way the world could be' — better versions of mundane things; beasts of virtue, elementals, spirits, ancient sites. Vivid, vis-rich auras boost Hermetic magic.","wants":"Its beings embody an essential nature and are largely indifferent to humanity; they pursue their nature relentlessly.","as_character":"A proud magical being acting utterly in-character to its essence.","as_thread":"A magical site, beast, or spirit must be dealt with on its own terms.","relations":["hook.magical_beast"]},
+    {"id":"realm.faerie","type":"realm","name":"The Faerie Realm","tags":["faerie","aura","vis","story","bargain","trickster","arcadia"],"realm":"Faerie",
+     "summary":"Beings drawn from human stories who feed on Vitality when humans play out their tales; tricksters bound by roles and bargains. Auras run high; +½ to Hermetic magic.","wants":"To steer humans into a story role and harvest the emotion; honours the letter of a deal, exploits the wording.","as_character":"A glamorous, literal-minded fae playing its part.","as_thread":"A faerie bargain or tale ensnares the covenant.","relations":["hook.faerie_bargain","house.merinita"]},
+    {"id":"realm.divine","type":"realm","name":"The Divine Realm","tags":["divine","dominion","church","relic","miracle","true-faith"],"realm":"Divine",
+     "summary":"God's power; the Dominion around churches, ubiquitous and crushing to non-Divine magic (−3× aura). Angels, saints, relics, True Faith; miracles cannot fail or be resisted.","wants":"To enforce God's order — protect the faithful, oppose the Infernal, turn sinners back.","as_character":"A saint, angel, or person of True Faith, an instrument of higher command.","as_thread":"A holy site, relic, or heresy-hunt confronts the covenant.","relations":["faction.church","hook.church_conflict"]},
+    {"id":"realm.infernal","type":"realm","name":"The Infernal Realm","tags":["infernal","demon","diabolist","temptation","corruption","deceit"],"realm":"Infernal",
+     "summary":"Evil and corruption; demons are fallen angels who tempt, deceive, and damn, envying humanity. Infernal lies cannot be pierced by magic; infernal vis is shunned.","wants":"To corrupt and damn souls; never bargains honestly; impatient, so it recruits diabolists.","as_character":"A demon in a tempting disguise, every word a trap.","as_thread":"An infernal temptation or diabolist works corruption within reach.","relations":["hook.infernal_temptation"]}
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "arm.fatigue",
+  "title": "Fatigue ladder",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#fatigue",
+  "ladder": [
+    {"level": "Fresh", "penalty": 0},
+    {"level": "Winded", "penalty": 0},
+    {"level": "Weary", "penalty": -1},
+    {"level": "Tired", "penalty": -3},
+    {"level": "Dazed", "penalty": -5},
+    {"level": "Unconscious", "penalty": "out"}
+  ],
+  "short_term_test": "Sta − Encumbrance + stress die vs EF 6 (fail −1 level, botch −2).",
+  "long_term": "1 level recovered per night's sleep. Penalty applies to all rolls except Soak."
+}

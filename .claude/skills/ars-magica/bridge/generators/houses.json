@@ -1,0 +1,16 @@
+{ "id":"arsmagica.houses", "title":"Houses of Hermes", "type":"list_d100", "dice":"1d100",
+  "note":"The twelve canonical Houses (Core Rules Ch.2). Roll for a magus NPC's House, a rival covenant's character, or which House an Order matter springs from. Weighting leans slightly toward the larger/commoner Houses.",
+  "entries":[
+    {"min":1,"max":9,"value":"Bonisagus — masters of Magic Theory and Hermetic research; Trianomae politicians who hold the Order together."},
+    {"min":10,"max":16,"value":"Bjornaer — beast-souled magi, each with a personal heartbeast animal form; insular, primal."},
+    {"min":17,"max":23,"value":"Criamon — body-marked mystics pursuing 'the Enigma'; cryptic, apolitical, alien logic."},
+    {"min":24,"max":36,"value":"Ex Miscellanea — vast, disorganized House of hedge traditions; accepts almost any Gifted wizard."},
+    {"min":37,"max":46,"value":"Flambeau — combat magi of fire and destruction; the Order's warriors, with an honour strand."},
+    {"min":47,"max":54,"value":"Guernicus (Quaesitor) — the Order's lawgivers; investigate and judge crimes against the Code."},
+    {"min":55,"max":63,"value":"Jerbiton — magi of art, civilization, and the mundane world; brokers with nobility and Church."},
+    {"min":64,"max":70,"value":"Mercere — the messengers; Gifted and unGifted Redcaps who carry news and bind the Order."},
+    {"min":71,"max":77,"value":"Merinita — faerie-bound magi who study and defend the fae; seek answers in Arcadia; strange."},
+    {"min":78,"max":86,"value":"Tremere — disciplined strategists who prize hierarchy and planning; invented Certamen."},
+    {"min":87,"max":93,"value":"Tytalus — masters of every kind of conflict; thrive on struggle; challenge their elders."},
+    {"min":94,"max":100,"value":"Verditius — unmatched crafters of enchanted items; proud, vendetta-prone; bound to casting tools."}
+  ] }

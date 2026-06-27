@@ -1,0 +1,12 @@
+{
+  "id": "arm.realm_interaction",
+  "title": "Realm Interaction — how an aura modifies each realm's power",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#realm-auras",
+  "note_global": "Expressions use 'a' = the aura rating. The modifier applies to Casting/Lab Totals, supernatural-ability rolls, Penetration, and Magic Resistance worked in that aura. A power FOREIGN to the aura also rolls +1 botch die per point of aura (doubled inside a regio). The Divine is never penalised anywhere.",
+  "auras": {
+    "Magic":    {"to_power": {"Magic": "a",     "Divine": "0", "Faerie": "a//2",  "Infernal": "-a"}, "note": "Magic and Faerie are friendly (+½ each way); Magic boosts Hermetic casting."},
+    "Faerie":   {"to_power": {"Magic": "a//2",  "Divine": "0", "Faerie": "a",     "Infernal": "-a"}, "note": "Faerie auras run high; +½ aura to Hermetic casting."},
+    "Divine":   {"to_power": {"Magic": "-3*a",  "Divine": "a", "Faerie": "-4*a",  "Infernal": "-5*a"}, "note": "The Dominion crushes all non-Divine power; a magus's Gift flickers as a flame in wind."},
+    "Infernal": {"to_power": {"Magic": "-a",    "Divine": "0", "Faerie": "-2*a",  "Infernal": "a"}, "note": "Infernal auras hamper Hermetic and (doubly) Faerie power."}
+  }
+}

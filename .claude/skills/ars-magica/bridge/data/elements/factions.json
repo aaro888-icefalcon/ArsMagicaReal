@@ -1,0 +1,22 @@
+{
+  "type": "faction",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md (Order of Hermes; Mythic Europe)",
+  "elements": [
+    {"id":"faction.order_of_hermes","type":"faction","name":"The Order of Hermes","tags":["order","magi","politics","code","power"],"realm":null,
+     "summary":"~1,200 magi in thirteen Tribunals, bound by the Parma Magica and the Code of Hermes.","wants":"Preserve itself, enforce the Code, and keep magi safe from each other and from mundanes.","as_thread":"Order politics — a Tribunal, a Quaesitor, a rival House — pulls the covenant in.","relations":["code_clause.endanger_order","npc_archetype.quaesitor"]},
+    {"id":"faction.quaesitores","type":"faction","name":"The Quaesitores & Hoplites","tags":["order","law","justice","guernicus","enforcement"],"realm":null,
+     "summary":"House Guernicus' investigators and the combat-magi (Hoplites) who enforce Hermetic law.","wants":"Uncover and punish breaches of the Code; deter Wizard's Wars and diabolism.","as_thread":"An investigation or enforcement action reaches the covenant.","relations":["house.guernicus","faction.order_of_hermes"]},
+    {"id":"faction.church","type":"faction","name":"The Church","tags":["mundane","divine","religion","dominion","authority"],"realm":"Divine",
+     "summary":"Christendom under the Pope; backed by the Divine, wielding tithes, canon law, and the threat of Crusade.","wants":"Save souls, uphold orthodoxy, root out heresy and diabolism, defend its temporal power.","as_thread":"Clergy grow suspicious, or a holy matter entangles the covenant.","relations":["realm.divine","hook.church_conflict"]},
+    {"id":"faction.nobility","type":"faction","name":"The Nobility","tags":["mundane","feudal","politics","land","war"],"realm":null,
+     "summary":"Feudal lords bound by oaths of fealty, trading land for military service.","wants":"Land, heirs, prestige, and any edge — including a magical one — pursued by marriage, war, and overture.","as_thread":"A lord's ambition, lawsuit, or feud touches covenant lands.","relations":["code_clause.no_mundane_ruin","npc_archetype.mundane_lord"]},
+    {"id":"faction.towns_guilds","type":"faction","name":"Towns & Guilds","tags":["mundane","trade","town","merchant","economy"],"realm":null,
+     "summary":"Walled towns and great fairs run by merchant councils, somewhat outside feudalism.","wants":"Trade, charters, and profit; wary of the strange and the Gifted.","as_thread":"A guild dispute, fair, or charter matter draws the covenant into town affairs."},
+    {"id":"faction.peasantry","type":"faction","name":"The Peasantry","tags":["mundane","village","folk","superstition","labour"],"realm":null,
+     "summary":"~90% of people; nearly powerless, illiterate but not ignorant; the supernatural is ordinary village life.","wants":"Survival, a fair harvest, protection; they fear magi but may accept 'their' wizards as fair lords.","as_thread":"Covenfolk or villagers bring a crisis, a rumour, or a fearful mob."},
+    {"id":"faction.infernal_cults","type":"faction","name":"Diabolists & Infernal Cults","tags":["infernal","demon","diabolism","secret","corruption"],"realm":"Infernal",
+     "summary":"Humans who sell their souls, lending demons the patience and follow-through demons lack.","wants":"Power, vengeance, or pleasure bought with damnation; to corrupt and conceal.","as_thread":"A hidden diabolist works corruption near the covenant.","relations":["realm.infernal","code_clause.no_devils"]},
+    {"id":"faction.faerie_courts","type":"faction","name":"The Faerie Courts","tags":["faerie","court","bargain","story","wild"],"realm":"Faerie",
+     "summary":"The shifting courts of Arcadia, Elysium, and Eudokia — kings, queens, tricksters, and the Wild Hunt.","wants":"To draw humans into their stories and feed on the Vitality of played-out tales.","as_thread":"A faerie court's game, bargain, or grievance ensnares the covenant.","relations":["realm.faerie","house.merinita"]}
+  ]
+}

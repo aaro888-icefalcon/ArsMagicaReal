@@ -1,0 +1,27 @@
+{
+  "id": "arm.warping",
+  "title": "Warping & Wizard's Twilight",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#warping",
+  "rule": "Warping Score rises like an Ability but by Warping Points. To raise the score by one, gain 5 × the new score in extra points. Points from any realm are not distinguished.",
+  "thresholds": [
+    {"score": 1, "points_to_reach": 5,  "extra_to_increase": 5},
+    {"score": 2, "points_to_reach": 15, "extra_to_increase": 10},
+    {"score": 3, "points_to_reach": 30, "extra_to_increase": 15},
+    {"score": 4, "points_to_reach": 50, "extra_to_increase": 20},
+    {"score": 5, "points_to_reach": 75, "extra_to_increase": 25}
+  ],
+  "sources": [
+    "Living in a strong (6+) supernatural aura (rate by aura table; not if the aura matches your own realm).",
+    "Being subjected to a powerful supernatural effect (any Hermetic spell of 6th magnitude or higher) not designed for you.",
+    "Being constantly under an active supernatural effect — 1 point/year per effect (a Longevity Ritual counts).",
+    "Botching a roll to use a supernatural ability (1 point per 0 on the botch dice)."
+  ],
+  "aura_rate": {
+    "6":  {"always": "1/year",   "half": "none",    "frequent": "none"},
+    "7":  {"always": "1/year",   "half": "1/2yr",   "frequent": "none"},
+    "8":  {"always": "2/year",   "half": "1/year",  "frequent": "none"},
+    "9":  {"always": "1/season", "half": "2/year",  "frequent": "1/year"},
+    "10": {"always": "1/month",  "half": "1/season","frequent": "2/year"}
+  },
+  "twilight_note": "For a magus, gaining Warping (especially from a supernatural botch, or when the Score crosses a threshold) can trigger Wizard's Twilight — roll per the Twilight rules (Ch.7, Dangers). Creatures with Might are immune to Warping."
+}

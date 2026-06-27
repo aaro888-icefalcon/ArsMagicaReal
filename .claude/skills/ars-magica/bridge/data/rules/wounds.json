@@ -1,0 +1,9 @@
+{
+  "id": "arm.wounds",
+  "title": "Wound bands by Size (from Damage − Soak)",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md#wounds",
+  "rule": "band width = 5 + Size; wound level = ceil((Damage − Soak) / width). 1=Light, 2=Medium, 3=Heavy, 4=Incapacitating, 5+=Dead.",
+  "penalties": {"Light": -1, "Medium": -3, "Heavy": -5, "Incapacitating": "no actions", "Dead": "dead"},
+  "size0_example": {"Light": "1-5", "Medium": "6-10", "Heavy": "11-15", "Incapacitating": "16-20", "Dead": "21+"},
+  "notes": "Penalties are cumulative with each other and with Fatigue, applied to all rolls/totals EXCEPT Soak. Incapacitated → two Recovery rolls/day; a 0-or-less roll kills."
+}

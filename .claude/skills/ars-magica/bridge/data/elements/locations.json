@@ -1,0 +1,23 @@
+{
+  "type": "location",
+  "source": "reviewed/Ars Magica - Definitive Edition (Core Rules).md (Covenants; Realms; Mythic Europe) + corpus gazetteer",
+  "note": "Location archetypes (and a few named sites) for framing scenes. Each carries the Realm/aura that governs casting there. Deeper, named gazetteer detail lives in the Tribunal books under reviewed/ and wip/.",
+  "elements": [
+    {"id":"location.covenant","type":"location","name":"The Covenant","tags":["covenant","home","aura","library","sanctum"],"realm":"Magic",
+     "summary":"The magi's fortified home — towers or a castle over a Magic aura, with library, labs, sancta, and covenfolk.","wants":"—","as_thread":"A crisis at home: the aura, the library, the turb, or a sanctum is threatened."},
+    {"id":"location.regio","type":"location","name":"A Regio","tags":["regio","aura","liminal","hidden","mystery"],"realm":"Magic",
+     "summary":"Nested layers of stronger aura sharing one place; higher 'floors' are stranger and realm-aligned. Entry: be led, see-and-cross, or get lost.","wants":"—","as_thread":"A regio opens, hides something, or swallows a place."},
+    {"id":"location.faerie_forest","type":"location","name":"A Faerie Forest","tags":["faerie","forest","wild","bargain","regio"],"realm":"Faerie",
+     "summary":"A wood thick with Faerie aura, home to satyrs, dryads, and courts, often with a regio of Arcadia within.","wants":"—","as_thread":"The forest's fae draw travellers into a tale or bargain.","relations":["realm.faerie"]},
+    {"id":"location.dominion_town","type":"location","name":"A Dominion Town or Church","tags":["divine","dominion","town","church","mundane"],"realm":"Divine",
+     "summary":"A town, cathedral, or holy site wrapped in a Dominion aura (1–5, up to 10 at the holiest) that crushes Hermetic magic.","wants":"—","as_thread":"Business in town under the Dominion's weight, amid wary clergy and crowds.","relations":["realm.divine","faction.church"]},
+    {"id":"location.infernal_site","type":"location","name":"An Infernal Site","tags":["infernal","tainted","corruption","aura","danger"],"realm":"Infernal",
+     "summary":"A place of repeated sin or demonic activity — vile, stinking, reopening wounds and conflicts; stronger by night.","wants":"—","as_thread":"An Infernal aura festers where a diabolist or demon works.","relations":["realm.infernal"]},
+    {"id":"location.ruined_covenant","type":"location","name":"A Ruined Covenant","tags":["covenant","ruin","ancient","treasure","ghost"],"realm":"Magic",
+     "summary":"A fallen covenant — vis, lost texts, enchanted devices, and restless dead amid the rubble of old magi.","wants":"—","as_thread":"Explore a ruined covenant for its secrets and its dangers.","relations":["hook.lost_text"]},
+    {"id":"location.vis_source","type":"location","name":"A Vis Source","tags":["vis","magic","resource","treasure","contested"],"realm":"Magic",
+     "summary":"A supernatural site yielding a recurring 1–6 (rarely 10) pawns of one Art's vis each season — a covenant's supreme treasure.","wants":"—","as_thread":"Secure, defend, or contest the vis source.","relations":["hook.vis_dispute"]},
+    {"id":"location.durenmar","type":"location","name":"Durenmar","tags":["order","domus-magna","bonisagus","rhine","grand-tribunal"],"realm":"Magic",
+     "summary":"The domus magna of House Bonisagus in the Black Forest; site of the Order's founding and the Grand Tribunal (every 33 years).","wants":"—","as_thread":"A summons, a vote, or a matter of the Great Library calls the magi to Durenmar.","relations":["house.bonisagus","tribunal.rhine"]}
+  ]
+}

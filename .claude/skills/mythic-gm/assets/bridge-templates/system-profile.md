@@ -1,0 +1,11 @@
+# System Profile — <RPG>   (hook: resolve)
+- Dice convention: <e.g. d20+mod / 2d6+stat / Xd6 pool>
+- Express a roll as: <dice.py roll string, e.g. 1d20+5>
+- Core resolution: <vs-DC / opposed / PbtA 6-,7-9,10+ / count ≥ N>
+- Degrees of success?: <yes|no>  (drives Fate-Question Exceptional mapping in rule-mode)
+- Stats / skills: <list>
+- Defenses / health: <AC, HP, saves, harm clock>
+- Combat: initiative <…>; attack <…>; damage <…>; defeat/death <real: death/maiming/capture>
+- NPC stat units: <AC / HP / damage dice / clock>  (for on-the-fly NPC Statistics)
+- Routing default: RPG resolves <combat, skills>; defer to Fate Questions for <world questions>
+- Subsystems as Fate Questions: <sanity / hacking / none>

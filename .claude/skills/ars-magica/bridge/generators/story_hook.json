@@ -1,0 +1,19 @@
+{ "id":"arsmagica.story_hook", "title":"Ars Magica Story Hook", "type":"list_d100", "dice":"1d100",
+  "note":"generate:element — a canonical Ars Magica complication to open or complicate an adventure, seed a Thread, or drive an offscreen faction move (see subsystems.md). Synthesised from Core Rules Ch.15 Story Ideas and confirmed against the Hooks / Tales of Mythic Europe supplements.",
+  "entries":[
+    {"min":1,"max":8,"value":"A vis source is discovered, drying up, tainted, or being stolen/contested by another magus."},
+    {"min":9,"max":15,"value":"A Tribunal looms and rival covenants court allies — siding with one makes enemies of another."},
+    {"min":16,"max":22,"value":"A magus is framed for (or genuinely caught in) a serious breach of the Hermetic Code."},
+    {"min":23,"max":30,"value":"A mundane authority — lord, bishop, or abbot — threatens, sues for, or seizes covenant land."},
+    {"min":31,"max":37,"value":"A rival or neighboring covenant wages low-grade harassment that stays within the letter of the Code."},
+    {"min":38,"max":45,"value":"A faerie offers a bargain, plays a game with the covenant, or abducts someone into its court."},
+    {"min":46,"max":52,"value":"An infernal temptation surfaces — a diabolist, a corrupted ally, or an infernal vis source is uncovered."},
+    {"min":53,"max":59,"value":"A Church conflict erupts — a bishop preaches against heretics and marches to 'investigate' the covenant."},
+    {"min":60,"max":66,"value":"A magical beast or roused ancient spirit intrudes on the covenant or a nearby village."},
+    {"min":67,"max":73,"value":"A lost Hermetic text, forgotten Mystery, or fragment of ancient/non-Hermetic magic comes to light."},
+    {"min":74,"max":80,"value":"A villager, noble, or abbey comes to the covenant begging assistance against a monster, famine, or theft."},
+    {"min":81,"max":87,"value":"A Redcap arrives with Order news, a summons, a Wizard's War declaration, or a sensitive package."},
+    {"min":88,"max":92,"value":"A grog or covenfolk crisis flares — rebellion, a death, possession, or a covenfolk caught spying."},
+    {"min":93,"max":97,"value":"Warping or Twilight strikes a magus, or the covenant's aura surges, fades, or slips into a regio."},
+    {"min":98,"max":100,"value":"An apprentice or Gauntlet matter arises — finding, training, losing, or testing an apprentice."}
+  ] }

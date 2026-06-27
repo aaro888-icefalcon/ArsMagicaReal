@@ -1,0 +1,17 @@
+{ "id":"arsmagica.tribunals", "title":"Tribunals of Mythic Europe", "type":"list_d100", "dice":"1d100",
+  "note":"The thirteen regional Tribunals (Core Rules Ch.2). Roll for where a covenant, rival, or Order matter lies, or to colour a region. Most have a dedicated sourcebook in the repo corpus (reviewed/ and wip/).",
+  "entries":[
+    {"min":1,"max":8,"value":"Rhine — Germany and the great forests of central Europe; tradition-bound, gauntlet-strict."},
+    {"min":9,"max":16,"value":"Normandy — northern France; crowded, competitive, tournament-style Tribunal politics."},
+    {"min":17,"max":24,"value":"Provençal (Provence) — southern France and the Pyrenees; courtly love, Cathar shadows."},
+    {"min":25,"max":32,"value":"Stonehenge — England and Wales; conquest-haunted, ancient sites."},
+    {"min":33,"max":39,"value":"Loch Leglean — Scotland; wild highlands and hedge traditions."},
+    {"min":40,"max":47,"value":"Hibernia — Ireland; deep faerie presence and old covenants."},
+    {"min":48,"max":54,"value":"Greater Alps — the Alpine arc; isolated, vis-rich, treacherous passes."},
+    {"min":55,"max":62,"value":"Iberia — Spain and Portugal; the Christian–Muslim frontier and the Reconquista."},
+    {"min":63,"max":70,"value":"Rome — the Italian peninsula; the Pope's shadow and the ruins of antiquity."},
+    {"min":71,"max":78,"value":"Theban — Greece and the Aegean; Byzantine learning, Mystery cults, initiation."},
+    {"min":79,"max":85,"value":"Transylvania — eastern Europe and the Carpathians; House Tremere's stronghold."},
+    {"min":86,"max":92,"value":"Novgorod — the Rus' lands and the northeast; frozen frontier and pagan survivals."},
+    {"min":93,"max":100,"value":"Levant — the Crusader states and the Holy Land; Outremer, Crusade, and strong Dominion."}
+  ] }

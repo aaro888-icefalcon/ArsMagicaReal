@@ -1,0 +1,16 @@
+{ "id":"arsmagica.hermetic_npc", "title":"Hermetic & Covenant NPC Archetype", "type":"list_d100", "dice":"1d100",
+  "note":"generate:character target (mode conjunction): roll on any NEW CHARACTER and layer this archetype onto the AC Character Crafter, then flesh from setting-canon (House, covenant, Realm). Gifted NPCs carry the Gift's -3 social penalty (-6 Blatant) unless Gentle Gift; Parma negates it among magi.",
+  "entries":[
+    {"min":1,"max":5,"value":"Archmagus — an ancient, immensely powerful magus rarely seen outside their sanctum."},
+    {"min":6,"max":18,"value":"Young magus — recently Gauntleted, eager to prove themselves and build a reputation."},
+    {"min":19,"max":26,"value":"Quaesitor — a Guernicus-trained investigator empowered to judge crimes against the Code."},
+    {"min":27,"max":32,"value":"Hoplite — a combat-trained magus who enforces Hermetic law by force, backing the Quaesitores."},
+    {"min":33,"max":44,"value":"Redcap — an (often unGifted) Mercere messenger carrying news, letters, and vis between covenants."},
+    {"min":45,"max":52,"value":"Hedge wizard — a magus of an obscure Ex Miscellanea tradition, only nominally Hermetic."},
+    {"min":53,"max":59,"value":"Verditius crafter — a proud enchanter selling magical items, prone to long vendettas."},
+    {"min":60,"max":64,"value":"Suspected diabolist — a magus rumored to deal with demons, shadowed by Quaesitorial suspicion."},
+    {"min":65,"max":74,"value":"Covenant grog-captain — the veteran soldier commanding the covenant's mercenary guards."},
+    {"min":75,"max":84,"value":"Covenant steward / autocrat — the mundane administrator running daily affairs and finances."},
+    {"min":85,"max":92,"value":"Mundane lord or cleric — a noble, bishop, or abbot whose lands or law entangle the covenant."},
+    {"min":93,"max":100,"value":"Faerie-touched peasant — a local villager marked by the fae; useful, unreliable, quietly dangerous."}
+  ] }
